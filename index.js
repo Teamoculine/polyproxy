@@ -20,7 +20,7 @@ app.post("/", async (req, res) => {
   }
 
   // Strip headers that would break the outgoing request
-  const blocklist = ["host", "content-length", "connection", "transfer-encoding"];
+  const blocklist = ["host", "content-length", "connection", "transfer-encoding", "content-type"];
   const forwardHeaders = Object.fromEntries(
     Object.entries(req.headers).filter(([k]) => !blocklist.includes(k.toLowerCase()))
   );
